@@ -1,0 +1,865 @@
+# PRD: Interactive 3D Developer Portfolio
+use the model from model/ folder
+**Project name:** Abdullah Amjad | Digital Playground  
+**Product type:** Personal portfolio website  
+**Primary role:** Full-Stack Developer  
+**Secondary focus:** AI/ML Engineering  
+**Visual direction:** Wix Studio meets Awwwards, with a futuristic Gen Z aesthetic  
+**Primary colors:** Neon parrot green `#C6FF00`, near-black `#0A0A0A`, charcoal `#171717`  
+**Core experience:** Immersive 3D, bold typography, smooth scrolling, interactive project cards, custom animations, and a premium responsive layout.
+
+## 1. Product vision
+
+Build a distinctive personal portfolio for Abdullah Amjad, a BS Software Engineering student at the University of Sargodha, showcasing his development skills, technical projects, and growing interest in AI and machine learning.
+
+The website must feel like a designed digital experience rather than a conventional developer template. It should have the visual quality of a premium Wix Studio or Awwwards-inspired website, with original layouts, thoughtful interactions, and a recognizable visual identity.
+
+The visitor should understand three things within the first few seconds:
+
+- Who Abdullah is and what he builds.
+- Which technologies he works with.
+- Where to explore his projects or contact him.
+
+The uploaded 3D character will be the visual centerpiece of the hero section. Do not generate a replacement avatar. The user will provide the model asset.
+
+## 2. Target audience
+
+- Recruiters looking for full-stack developers and software engineering interns.
+- Startup founders and potential freelance clients.
+- Developers interested in collaboration.
+- AI/ML teams and graduate admissions reviewers.
+- Other developers exploring the projects and source code.
+
+## 3. Brand identity and copywriting
+
+### Personal brand
+
+**Brand name:** Abdullah Amjad
+
+**Professional positioning:** Full-Stack Developer | AI/ML Enthusiast
+
+The copy should sound confident, technically curious, and human. Avoid generic phrases such as “passionate tech enthusiast,” “turning dreams into reality,” or “innovative solutions for tomorrow.”
+
+### Core messaging
+
+Hero headline:
+
+**I build digital things that do more.**
+
+Supporting text:
+
+I'm Abdullah, a Software Engineering student and full-stack developer who enjoys building useful products, exploring AI, and turning ideas into working software.
+
+Primary CTA: `Explore My Work`
+
+Secondary CTA: `Let's Talk`
+
+Small status label: `SOFTWARE ENGINEERING · FULL-STACK DEVELOPMENT`
+
+Alternative hero headline to test:
+
+**From an idea to something you can use.**
+
+Use the first headline as the default.
+
+## 4. Visual design system
+
+### Color palette
+
+| Token | Value | Usage |
+|---|---|---|
+| Background | `#0A0A0A` | Main page background |
+| Surface | `#171717` | Cards and panels |
+| Primary accent | `#C6FF00` | CTAs, active states, highlights |
+| Primary text | `#F5F5F5` | Headings and important copy |
+| Secondary text | `#A3A3A3` | Body text and descriptions |
+| Borders | `#303030` | Subtle dividers |
+| Secondary accent | `#A3E635` | Limited gradient and hover effects |
+
+Use neon lime sparingly. It should guide attention rather than cover every surface. Most of the website should remain dark and neutral.
+
+Keep the accent color consistent across buttons, icons, selected navigation states, cursor effects, and 3D lighting.
+
+### Typography
+
+Use a strong display font paired with a highly readable body font.
+
+Preferred combination:
+- **Space Grotesk:** headings, hero text, project titles.
+- **Inter:** body text, navigation, forms, descriptions.
+- **JetBrains Mono:** small labels, technical metadata, code-inspired details.
+
+Load fonts through a reliable font provider or local font files. Use responsive typography with `clamp()` so headings scale smoothly across screen sizes.
+
+Headings should be large, tightly spaced, and editorial. Body copy should remain comfortable to read. Avoid using more than three font families.
+
+### Art direction
+
+- Black canvas with a subtle grain texture.
+- Lime-green glow used behind the avatar and selected elements.
+- Thin borders and restrained glass effects.
+- Custom cursor on desktop, with a normal accessible cursor on mobile.
+- Abstract geometric elements inspired by nodes, code, and 3D wireframes.
+- Large typography and generous spacing.
+- Asymmetrical compositions balanced by a clear grid.
+- Small technical labels that add personality without clutter.
+
+Avoid excessive neon, constant spinning objects, generic AI-generated backgrounds, and unnecessary gradients.
+
+## 5. Page architecture
+
+Build a polished single-page portfolio with the following sections:
+
+1. Custom navigation
+2. Hero with 3D character
+3. Scrolling technology marquee
+4. About me
+5. Technical skills
+6. Selected projects
+7. Current focus and AI/ML direction
+8. Development approach
+9. Contact section
+10. Footer
+
+Navigation should use anchor links and smooth scrolling. The layout must feel like a single connected experience rather than separate template blocks.
+
+## 6. Section 1: Navigation
+
+Create a minimal floating navigation bar with a dark translucent background and subtle border.
+
+Left side:
+`AA.` as a compact personal monogram.
+
+Center or right side:
+- Home
+- About
+- Skills
+- Projects
+- Contact
+
+CTA:
+`Let's Talk ↗`
+
+Interactions:
+- The navigation becomes slightly more opaque after scrolling.
+- Active sections receive a lime-green indicator.
+- Hovering over a link animates a short underline.
+- Clicking a link smoothly scrolls to the section.
+- The mobile navigation opens as a full-screen or compact overlay with a smooth transition.
+
+Keep the header fixed or sticky without covering section headings. Respect reduced-motion preferences.
+
+## 7. Section 2: Hero experience
+
+This is the most important section. It should immediately establish the visual identity of the portfolio.
+
+### Layout
+
+Use a two-column composition on desktop.
+
+Left side:
+- Small eyebrow label: `BUILDING FOR THE WEB & BEYOND`
+- Large heading: `I build digital things that do more.`
+- Two-line supporting description.
+- Primary CTA: `Explore My Work`
+- Secondary CTA: `Get in Touch`
+- Small availability label, only if the user confirms their actual availability.
+
+Right side:
+- The user's uploaded 3D character.
+- Soft lime-green lighting behind the character.
+- Subtle floating geometric objects or abstract technical elements.
+- A small interactive technology badge or two, positioned carefully around the avatar.
+
+The 3D model must be the focal point, not a decorative element competing with the headline.
+
+### 3D asset integration
+
+Create an asset configuration that lets the user supply the model later.
+
+Suggested asset path:
+`public/models/abdullah-avatar.glb`
+
+This is a placeholder path, not an existing file. Make the path configurable in one place.
+
+Requirements:
+- Support GLB/GLTF.
+- Use React Three Fiber and Drei if the application uses React.
+- Load the model asynchronously with a loading indicator.
+- Show a clean fallback illustration or static visual if the model fails to load.
+- Keep the model inside a defined canvas and prevent it from covering the text.
+- Use appropriate camera framing, lighting, exposure, and shadows.
+- Preserve the original model materials unless adjustments are required for visual consistency.
+- Test whether the model contains excessive polygons or large textures, and optimize it if necessary.
+- Avoid unnecessary physics, complex post-processing, or expensive real-time effects.
+
+### Avatar animation
+
+Implement subtle, polished movement:
+- Gentle idle rotation or breathing-like motion.
+- Small pointer-based parallax on desktop.
+- Smooth transitions when the page loads.
+- Optional controlled head or body movement if the model supports it.
+- No uncontrolled spinning or rapid movement.
+
+The animation should stop or simplify on mobile, when the browser tab is inactive, or when reduced motion is enabled.
+
+### Hero microcopy
+
+Use small technical labels around the avatar, for example:
+
+`FULL-STACK DEVELOPMENT`
+
+`BUILD. TEST. IMPROVE.`
+
+`EXPLORING AI/ML`
+
+These labels should be decorative and should not imply unverified employment or expertise.
+
+## 8. Section 3: Technology marquee
+
+Add a continuous horizontal scrolling band beneath the hero.
+
+Suggested text:
+
+`REACT` · `JAVASCRIPT` · `PYTHON` · `FASTAPI` · `SQL` · `TAILWIND CSS` · `GIT` · `MACHINE LEARNING`
+
+Use custom-designed wordmarks or simple icons where appropriate. Use original SVG icons or a consistent icon library rather than mixing unrelated icon styles.
+
+The marquee should:
+- Move slowly and continuously.
+- Pause on hover if appropriate.
+- Avoid causing horizontal overflow.
+- Respect reduced-motion settings.
+- Remain readable on small screens.
+
+Do not claim expertise in a technology solely because it appears in the marquee. Treat it as a selection of technologies the developer has worked with.
+
+## 9. Section 4: About me
+
+Section eyebrow: `A LITTLE ABOUT ME`
+
+Heading:
+
+**Curious by default. Building by doing.**
+
+Body copy:
+
+I'm Abdullah Amjad, a Software Engineering student at the University of Sargodha. I enjoy building applications from the ground up, working across the frontend and backend, and understanding how the pieces fit together.
+
+My work spans web applications, APIs, database-backed systems, and security-focused projects. I'm also exploring AI and machine learning, with a long-term goal of building software that combines practical engineering with intelligent systems.
+
+I care about interfaces that feel considered, code that is maintainable, and products that solve real problems.
+
+Supporting visual:
+Use a small interactive constellation of connected technical nodes, an abstract 3D shape, or a code-inspired illustration. Do not add a personal photograph.
+
+Optional metadata:
+- University of Sargodha
+- BS Software Engineering
+- Session 2023–2027
+- Current focus: Full-stack development and AI/ML
+
+Present this information as compact visual metadata rather than a résumé paragraph.
+
+## 10. Section 5: Technical skills
+
+Section eyebrow: `MY TOOLKIT`
+
+Heading:
+
+**The tools I use to bring ideas to life.**
+
+Supporting text:
+
+From interfaces and APIs to databases and machine learning experiments, I work across different parts of the development process.
+
+Use interactive skill cards rather than a wall of progress bars. Do not assign percentage ratings such as 90% React or 85% Python because these numbers are subjective and misleading.
+
+### Skill group A: Frontend development
+
+Technologies:
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Tailwind CSS
+- Bootstrap
+- Figma
+- Responsive UI development
+
+Card description:
+
+I build responsive interfaces with attention to layout, usability, and the details that make a product feel finished.
+
+### Skill group B: Backend development
+
+Technologies:
+- Python
+- FastAPI
+- PHP
+- REST API development
+- JWT authentication
+- API integration
+
+Card description:
+
+I work on backend services, API design, authentication flows, and the logic that connects an interface to its data.
+
+### Skill group C: Databases and data
+
+Technologies:
+- SQL
+- PostgreSQL
+- SQLite
+- Database design
+- Data handling with NumPy
+
+Card description:
+
+I work with structured data, relational databases, and the data flows that keep applications organized and reliable.
+
+### Skill group D: AI and machine learning
+
+Technologies and areas:
+- Python
+- NumPy
+- scikit-learn
+- Data preprocessing
+- Classification
+- Clustering
+- Feature engineering
+- Model evaluation
+- Exploratory NLP and deep learning
+
+Card description:
+
+I'm developing my machine learning skills through practical experiments involving data preparation, model training, evaluation, and applied AI projects.
+
+Only display libraries and methods the developer can explain and demonstrate. BERT, RoBERTa, or other advanced models can be listed separately if their use is confirmed.
+
+### Skill group E: Tools and workflow
+
+Technologies:
+- Git
+- GitHub
+- Playwright
+- BeautifulSoup
+- Figma
+- Photoshop
+- Cursor and AI-assisted development tools
+
+Card description:
+
+I use version control, browser automation, design tools, and development assistants to move from an idea to a working implementation.
+
+### Skill group F: Programming fundamentals
+
+Technologies:
+- C++
+- Python
+- Dart
+- Object-oriented programming
+- Data structures and algorithms
+- Operating systems
+- Computer networks
+- Database fundamentals
+
+Card description:
+
+My Software Engineering background helps me understand the concepts behind the tools, not just how to use their interfaces.
+
+### Skill interactions
+
+Each card should include:
+- A custom icon or small animated visual.
+- A title and concise description.
+- Technology chips.
+- A hover or focus state.
+- A restrained lime-green accent.
+
+Clicking a card may reveal more information or expand its technology list. Keep the interaction keyboard accessible.
+
+Do not display skill proficiency percentages or years of professional experience unless verified.
+
+## 11. Section 6: Selected projects
+
+Section eyebrow: `SELECTED WORK`
+
+Heading:
+
+**Things I've built, broken, fixed, and improved.**
+
+Supporting text:
+
+A collection of projects where I experiment with ideas, work through engineering problems, and turn concepts into functioning applications.
+
+Build a premium project gallery with large cards, strong typography, screenshots, and hover interactions. Use real screenshots or user-provided project images. Do not invent product screenshots, user numbers, ratings, or business outcomes.
+
+### Project 01: AutoBill
+
+Category: `MOBILE APP · BUSINESS TOOLS`
+
+Description:
+
+A mobile invoicing app designed to make everyday business record-keeping simpler. Create invoices, organize customer and service details, export PDFs, and share invoices directly through WhatsApp.
+
+Highlights:
+- React Native and Expo.
+- Invoice generation.
+- Customer and service records.
+- PDF export and WhatsApp sharing.
+- Sales totals and searchable records.
+
+CTA: `Explore Project`
+
+### Project 02: PaletteSnap
+
+Category: `FULL-STACK · IMAGE PROCESSING`
+
+Description:
+
+A web application for extracting useful color palettes from images. It combines an interactive frontend with a Python backend and image-processing techniques to identify representative colors.
+
+Highlights:
+- React and Vite.
+- FastAPI.
+- Pillow and scikit-learn.
+- Playwright-based browser automation or testing where applicable.
+- Color extraction using K-Means clustering.
+
+CTA: `Explore Project`
+
+### Project 03: SecureVault
+
+Category: `SECURITY · WEB APPLICATION`
+
+Description:
+
+A secure file-sharing project built around encrypted uploads and controlled access. The goal is to make file sharing more deliberate by combining encryption with expiring links.
+
+Highlights:
+- PHP and MySQL.
+- AES-256 encryption.
+- Expiring download links.
+- SHA-256 integrity checks.
+
+Do not describe the application as independently audited or production-secure unless that has been verified. Explain security controls accurately.
+
+CTA: `Explore Project`
+
+### Project 04: Ascend
+
+Category: `FULL-STACK · AUTHENTICATION`
+
+Description:
+
+A web application concept focused on accounts, referral tracking, and user activity. It combines a modern frontend with an API-driven backend and authentication workflows.
+
+Highlights:
+- React.
+- FastAPI.
+- Short-lived access tokens and refresh tokens.
+- CSRF protection and rate limiting.
+- Referral leaderboard.
+
+Describe security features as implemented only if they are present in the published version.
+
+CTA: `Explore Project`
+
+### Project 05: CinVault
+
+Category: `WEB APP · API INTEGRATION`
+
+Description:
+
+A movie discovery application built with Next.js and the TMDB API, designed to make browsing movie information feel simple and engaging.
+
+Highlights:
+- Next.js.
+- TMDB API integration.
+- Movie discovery and presentation.
+- Responsive interface.
+
+CTA: `Explore Project`
+
+### Project 06: Sugarcane AI
+
+Category: `AI/ML · AGRICULTURE · RESEARCH`
+
+Description:
+
+An ongoing final-year project direction exploring how computer vision, crop and weather information, and decision-support tools could help monitor sugarcane health in Punjab, Pakistan.
+
+Potential research areas:
+- Sugarcane disease classification.
+- Crop and pest risk assessment.
+- Weather-informed decision support.
+- Accessible interfaces for agricultural users.
+
+Mark this project as `IN DEVELOPMENT` or `RESEARCH DIRECTION` until its actual implementation and results are confirmed. Do not present proposed models or expected outcomes as completed work.
+
+CTA: `View Research Direction`
+
+### Project card behavior
+
+Each card should feature:
+- Project title and category.
+- One or two sentences describing its purpose.
+- A screenshot or project-specific visual.
+- Technology tags.
+- A link to the live demo, if available.
+- A GitHub link, if public.
+- A details page or modal for a longer case study.
+
+Use real repository URLs and working demos supplied by the user. Hide unavailable links instead of creating fake ones.
+
+Hover behavior:
+- Slight image zoom.
+- Border color shifts toward lime green.
+- Project title moves a few pixels or changes color.
+- A small arrow animates into view.
+- Optional pointer-based tilt with a very small rotation.
+
+Avoid strong 3D tilt on mobile or interactions that make text difficult to read.
+
+## 12. Section 7: Current focus
+
+Section eyebrow: `WHAT I'M EXPLORING`
+
+Heading:
+
+**Building for the web. Looking beyond it.**
+
+Copy:
+
+Full-stack development is where I build and test my ideas today. Alongside it, I'm exploring machine learning, data-driven applications, and the engineering needed to bring AI features into useful products.
+
+I'm particularly interested in applied AI projects that address practical problems, including agriculture and other challenges relevant to Pakistan.
+
+Use a visual bridge between two themes:
+
+**WEB ENGINEERING**
+React · APIs · Databases · Application security
+
+**AI & MACHINE LEARNING**
+Python · Data preparation · Model evaluation · Computer vision
+
+Animate the connecting line or nodes as the user scrolls into view. Keep this section focused on genuine interests rather than presenting a list of future achievements.
+
+## 13. Section 8: Development approach
+
+Section eyebrow: `HOW I WORK`
+
+Heading:
+
+**Good software starts with good decisions.**
+
+Create three visual steps:
+
+**01. Understand**
+
+Figure out the problem, who the product is for, and what it needs to do.
+
+**02. Build**
+
+Turn the requirements into a clear interface, working features, and a backend that supports them.
+
+**03. Refine**
+
+Test the important flows, fix issues, improve usability, and make the application easier to maintain.
+
+Use a horizontal timeline on desktop and a vertical timeline on mobile. Each step should reveal a subtle animation when it enters the viewport.
+
+Do not present this as a certified methodology or claim formal industry experience.
+
+## 14. Section 9: Contact
+
+This should feel like a strong final section, not a generic contact form.
+
+Background: charcoal with a subtle lime-green radial glow.
+
+Heading:
+
+**Have an idea? Let's make it real.**
+
+Supporting text:
+
+I'm open to conversations about development projects, internships, collaborations, and interesting ideas. If you're building something and think we could work well together, I'd like to hear about it.
+
+Primary CTA: `Get in Touch`
+
+Contact methods:
+- Email
+- GitHub
+- LinkedIn
+
+Use the actual URLs and email address supplied by the user. Never invent contact information.
+
+Optional contact form:
+- Name
+- Email
+- Message
+- Send message button
+
+If a form is included, connect it to a real backend or form service. Validate inputs, display success and error states, protect against spam, and never claim a message was sent when the submission failed.
+
+## 15. Section 10: Footer
+
+Display:
+
+`ABDULLAH AMJAD.`
+
+`Designed with intention. Built with code.`
+
+Navigation:
+- Home
+- Projects
+- Skills
+- Contact
+
+Include GitHub and LinkedIn links, plus the current year generated automatically.
+
+Use a small monogram animation or an abstract 3D shape. Avoid large decorative footer graphics that add no value.
+
+## 16. Animation and interaction specification
+
+The site should feel fluid, but animation must support the content rather than distract from it.
+
+### Page entrance
+- Fade and slide the hero content into view.
+- Reveal the heading in short word or line groups.
+- Bring the avatar into view with a subtle scale and opacity transition.
+- Stagger small labels and CTAs.
+
+### Scroll interactions
+- Reveal section headings as they enter the viewport.
+- Animate skill cards with a slight stagger.
+- Use restrained image transitions in the project gallery.
+- Animate the current-focus connector.
+- Avoid pinning every section or forcing users through long scroll animations.
+
+### Hover and pointer
+- Custom cursor follower on desktop only, if it remains responsive.
+- Subtle cursor response on project cards.
+- Animated buttons with a small arrow or background transition.
+- Interactive icon movement on focused controls.
+- Optional magnetic CTA effect with minimal displacement.
+
+### Loading and transitions
+- Use a lightweight loading state for the 3D model.
+- Avoid an unnecessary full-screen loading animation.
+- Ensure the hero content appears even if the model takes longer to load.
+- Prevent layout shifts by reserving space for media and the 3D canvas.
+
+### Technical constraints
+- Use Framer Motion for DOM animations.
+- Use React Three Fiber and Drei for the 3D scene.
+- Use CSS transitions for simple hover states.
+- Do not introduce multiple animation libraries that duplicate functionality.
+- Prefer transform and opacity animations.
+- Dynamically import or defer the 3D scene if this improves initial loading.
+- Respect `prefers-reduced-motion`.
+
+## 17. Custom icons and graphic assets
+
+Create a consistent icon system using Lucide icons or original SVG components.
+
+Required icon categories:
+- Frontend development.
+- Backend and APIs.
+- Databases.
+- AI and machine learning.
+- Security.
+- Git and development workflow.
+- External links.
+- Email and social platforms.
+
+Icons should share the same stroke width, proportions, and visual style.
+
+Use neon lime only for active states or selected icons. Most icons should be white or muted gray.
+
+Do not use emoji as substitutes for the primary skill or navigation icons. Do not use random icons from multiple libraries.
+
+## 18. Technical stack
+
+Preferred implementation:
+
+- **Framework:** React with Vite and TypeScript.
+- **Styling:** Tailwind CSS.
+- **Components:** shadcn/ui where useful, customized to match the portfolio.
+- **Animations:** Framer Motion.
+- **3D:** Three.js, React Three Fiber, and Drei.
+- **Icons:** Lucide React and custom SVGs.
+- **Routing:** React Router if separate project detail pages are needed.
+- **Forms:** React Hook Form and Zod if a contact form is implemented.
+- **Deployment:** Vercel, Netlify, or another suitable static hosting provider.
+
+Use the current stable, mutually compatible package versions at implementation time. Do not blindly install deprecated dependencies or rewrite the project configuration without checking the existing setup.
+
+A separate backend is unnecessary for the initial static portfolio unless the contact form or another feature requires it.
+
+## 19. Responsive design
+
+### Desktop
+- Large editorial hero heading.
+- Two-column hero layout.
+- 3D character with generous space.
+- Three-column or asymmetric project grid.
+- Interactive skill cards.
+- Subtle cursor effects.
+
+### Tablet
+- Smaller hero heading.
+- Reduced 3D scene complexity.
+- Two-column project layout where space allows.
+- Simplified navigation.
+
+### Mobile
+- Single-column layout.
+- Hero text first, followed by the 3D character.
+- Reduced model size and lighting effects.
+- Two-column skill chips or compact stacked skill cards.
+- Single-column project cards.
+- No custom cursor.
+- No hover-only functionality.
+- No horizontal overflow.
+- Comfortable touch targets and readable text.
+
+The site must work from small mobile screens to large desktop monitors.
+
+## 20. Accessibility and performance
+
+Accessibility:
+- Semantic HTML.
+- Keyboard-accessible navigation and controls.
+- Visible focus states.
+- Adequate text contrast.
+- Alternative text for informative images.
+- Labels and validation messages for form fields.
+- Reduced-motion support.
+- No information conveyed by color alone.
+
+Performance:
+- Compress project screenshots.
+- Use modern image formats such as WebP or AVIF where suitable.
+- Lazy-load below-the-fold imagery.
+- Optimize the GLB model and its textures.
+- Limit unnecessary WebGL effects.
+- Avoid loading the 3D scene before it is needed if doing so improves performance.
+- Prevent layout shifts.
+- Test on a mid-range mobile device and a slower connection.
+
+Aim for strong Core Web Vitals and a Lighthouse performance score of 90 or above where practical. Treat this as a target to measure, not a guaranteed result.
+
+## 21. SEO and sharing
+
+Page title:
+
+`Abdullah Amjad | Full-Stack Developer`
+
+Meta description:
+
+`Explore Abdullah Amjad's portfolio, featuring full-stack development projects, web applications, APIs, and applied AI/ML work.`
+
+Requirements:
+- Unique page title and description.
+- Open Graph metadata.
+- Favicon using the `AA` monogram.
+- Proper heading hierarchy.
+- Descriptive project link labels.
+- Canonical URL after the domain is finalized.
+- Sitemap and robots.txt where appropriate.
+- Meaningful metadata for social sharing.
+
+Do not add fake reviews, fake clients, invented testimonials, or unverified professional credentials.
+
+## 22. Project structure
+
+Organize the codebase into reusable components.
+
+Suggested structure:
+
+`src/components/layout/`
+- Navbar
+- Footer
+- SectionContainer
+
+`src/components/hero/`
+- HeroSection
+- AvatarScene
+- AvatarFallback
+- HeroActions
+
+`src/components/skills/`
+- SkillsSection
+- SkillCard
+- TechnologyBadge
+
+`src/components/projects/`
+- ProjectsSection
+- ProjectCard
+- ProjectDetails
+
+`src/components/animations/`
+- Reveal
+- Marquee
+- AnimatedButton
+
+`src/data/`
+- projects.ts
+- skills.ts
+- navigation.ts
+
+`src/styles/`
+- globals.css
+- theme.css
+
+`public/models/`
+- abdullah-avatar.glb
+
+The structure can be adjusted to match the project's actual framework and conventions. Keep content separate from layout wherever practical.
+
+## 23. Content and asset requirements
+
+Before launch, gather:
+- The final 3D model in GLB/GLTF format.
+- Project screenshots or preview images.
+- Actual GitHub repository URLs.
+- Live demo links, if available.
+- LinkedIn profile URL.
+- Public contact email.
+- Any additional project details that can be verified.
+
+If an asset is missing, use a deliberate placeholder and make it easy to replace. Do not invent project links, use broken images, or make unfinished features appear complete.
+
+## 24. Acceptance criteria
+
+The implementation is complete when:
+
+- The site communicates Abdullah's identity and technical focus immediately.
+- The visual system consistently uses black, charcoal, and neon lime.
+- The uploaded 3D model can be integrated through a configurable asset path.
+- The site has a usable fallback when the model cannot load.
+- All required sections are implemented.
+- Skills are grouped logically without invented proficiency percentages.
+- Projects use accurate descriptions and real links.
+- Navigation and animations work on desktop and mobile.
+- Keyboard navigation and reduced-motion preferences are supported.
+- The site has no horizontal overflow on common screen sizes.
+- No primary CTA is broken or points to a placeholder.
+- Contact submissions work if a contact form is provided.
+- The page has appropriate SEO metadata.
+- The implementation is tested for console errors, loading failures, and responsive layout issues.
+
+## 25. Final instructions for the AI coding agent
+
+Build the actual working website, not just a visual mockup or static screenshot.
+
+Start by inspecting the existing project and its package configuration. Reuse working components where appropriate. Then implement the page structure, visual design system, content, 3D avatar integration, animations, and responsive layouts.
+
+Prioritize the quality of the hero section, typography, project gallery, and spacing. Make every section feel intentional. Use the specified copy as the initial content, but keep project details, skills, links, and the avatar path in easily editable configuration or data files.
+
+Do not fabricate experience, testimonials, metrics, project outcomes, or contact information. Do not leave dead buttons, fake form submissions, broken routes, or unfinished sections hidden behind impressive animations.
+
+The final result should feel like a personal digital playground built by a developer who cares about both engineering and design: expressive, interactive, technically sound, and unmistakably its own.

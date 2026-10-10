@@ -1,0 +1,104 @@
+/* ============================================================
+   Design tokens — single source of truth
+   Abdullah Amjad | Quiet Confidence
+   A warm, neutral-first palette. Near-black canvas, warm white
+   text, one signal colour (parrot lime) reserved for meaning —
+   never used as a fill or a border on every surface.
+   ============================================================ */
+
+:root {
+  /* --- Primitives: colour (warm-neutral) --- */
+  --lime-500: #c6ff00;
+  --lime-600: #a3e635;
+
+  --ink-950: #0a0a0a;
+  --ink-900: #0e0e0d;
+  --ink-880: #131311;
+  --ink-850: #171614;
+  --ink-800: #1c1b19;
+  --ink-700: #242320;
+  --ink-600: #302e2a;
+  --ink-500: #3d3b35;
+
+  --fog-50: #f1f0ea;
+  --fog-300: #cbc9bf;
+  --fog-400: #96948b;
+  --fog-500: #84827a;
+
+  /* --- Semantic: surfaces --- */
+  --bg: var(--ink-950);
+  --surface: var(--ink-850);
+  --surface-2: var(--ink-880);
+  --surface-raised: var(--ink-800);
+
+  /* --- Semantic: text --- */
+  --text: var(--fog-50);
+  --text-muted: var(--fog-400);
+  --text-faint: var(--fog-500);
+
+  /* --- Semantic: lines & signal --- */
+  --border: var(--ink-700);
+  --border-strong: var(--ink-600);
+  --accent: var(--lime-500);
+  --accent-dim: var(--lime-600);
+  --accent-ink: #0a0a0a; /* text on top of accent */
+
+  /* --- Ambient gradient (single place to disable) --- */
+  --gradient-hairline: linear-gradient(
+    90deg,
+    transparent,
+    var(--border) 12%,
+    var(--border) 88%,
+    transparent
+  );
+
+  /* --- Typography --- */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Fluid type scale (clamped for smooth scaling) */
+  --text-2xs: clamp(0.6875rem, 0.67rem + 0.1vw, 0.75rem);
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
+  --text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.9375rem);
+  --text-base: clamp(0.9375rem, 0.9rem + 0.25vw, 1.0625rem);
+  --text-lg: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --text-3xl: clamp(1.9rem, 1.5rem + 1.9vw, 2.9rem);
+  --text-4xl: clamp(2.35rem, 1.7rem + 3.2vw, 4.25rem);
+  --text-5xl: clamp(2.9rem, 1.8rem + 4.8vw, 5.75rem);
+  --text-hero: clamp(2.4rem, 1.5rem + 4.2vw, 4.75rem);
+
+  /* --- Spacing rhythm (4px base) --- */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 6.5rem;
+  --space-4xl: 9rem;
+
+  /* --- Radius system (sharp, editorial) --- */
+  --radius-control: 3px;
+  --radius-surface: 4px;
+  --radius-round: 999px;
+
+  /* --- Elevation: one quiet level --- */
+  --elev-1: 0 20px 50px -30px rgba(0, 0, 0, 0.85);
+
+  /* --- Motion --- */
+  --duration-fast: 150ms;
+  --duration-base: 400ms;
+  --duration-slow: 800ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* --- Layout --- */
+  --shell-max: 82rem;
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --header-h: 4.5rem;
+}

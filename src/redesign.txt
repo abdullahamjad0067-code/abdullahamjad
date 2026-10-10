@@ -1,0 +1,293 @@
+# Portfolio Redesign Brief: From AI-Generated to Award-Worthy
+
+Act as a world-class digital art director, senior product designer, creative developer, and experienced frontend engineer. Your work should meet the standards of exceptional independent design studios and technically ambitious portfolios featured on Awwwards, Godly, and similar design galleries.
+
+Your task is to completely redesign and refine my EXISTING developer portfolio website.
+
+The current version feels AI-generated, visually repetitive, overly decorated, and lacking a clear creative direction. The typography is too generic, the layout relies too heavily on cards, the neon-green accent is overused, the 3D subject feels disconnected from the page, and the interactions do not feel intentional.
+
+I do not want another template with different colors. I want a coherent, recognizable design with a strong visual identity, excellent typography, carefully composed layouts, and purposeful interactions.
+
+**The goal is not to add more effects. The goal is to make every design decision feel intentional.**
+
+## 1. Start by Auditing the Existing Codebase
+
+Before changing anything:
+
+- Inspect the existing project structure, framework, dependencies, routes, components, styling system, assets, fonts, and animation implementation.
+- Identify the actual cause of the 3D subject facing the wrong direction, the broken or ineffective cursor interaction, and any performance or responsiveness problems.
+- Check for unnecessary components, repetitive layouts, redundant CSS, conflicting animation libraries, placeholder content, and artificial-looking UI patterns.
+- Preserve useful existing functionality, accurate project information, and working integrations.
+- Reuse high-quality existing assets where appropriate.
+- Do not replace the project with a new starter template.
+- Do not immediately rewrite the entire application before understanding how it works.
+
+After the audit, implement the redesign directly in the existing project. Do not stop after producing a plan, screenshots, a mockup, or a list of recommendations.
+
+## 2. Creative Direction: Quiet Confidence
+
+Design a minimal, editorial, experimental developer portfolio with the restraint of a high-end design studio and the technical personality of an independent creative developer.
+
+The website should feel designed, not generated.
+
+Use these principles:
+
+- Strong typography instead of excessive decorative UI.
+- Asymmetrical compositions instead of repetitive centered sections.
+- Generous negative space instead of filling every available area.
+- A clear hierarchy instead of dozens of competing details.
+- One memorable visual signature instead of multiple unrelated effects.
+- Motion that communicates intention instead of constant animation.
+- Carefully chosen details instead of decoration for decoration's sake.
+
+Avoid the familiar AI portfolio aesthetic: endless rounded cards, glassmorphism, excessive gradients, glowing borders, random floating dots, tiny uppercase text everywhere, excessive pills, fake terminal interfaces, and generic section layouts.
+
+## 3. Visual Identity
+
+Use a disciplined color system:
+
+- Background: near-black #0A0A0A.
+- Primary text: warm white #F1F0EA.
+- Secondary text: muted neutral gray.
+- Accent: parrot-lime #C6FF00.
+- Dividers: subtle, low-contrast charcoal.
+
+Green must be an accent, not the background for every interaction. Reserve it for a few meaningful elements such as a highlighted word, active navigation state, cursor detail, selected project metadata, or a key call to action.
+
+Do not put green borders around every card. Do not use neon glow as a substitute for contrast or hierarchy.
+
+Use a sophisticated typographic system with one expressive display typeface and a highly legible supporting typeface. Inspect available fonts and use suitable licensed or accessible web fonts where appropriate. Make typography the main design element.
+
+Headlines should have deliberate line breaks, balanced proportions, and strong contrast in scale. Supporting text must remain comfortably readable. Avoid extremely tiny body text and excessive letter spacing.
+
+## 4. Hero: Make the First Screen Unforgettable
+
+Rebuild the hero as the strongest part of the website.
+
+The first viewport should immediately communicate who I am, what I build, and what makes my work interesting.
+
+Use an editorial composition with a bold headline, concise supporting copy, and one carefully positioned 3D subject. The layout should feel composed rather than assembled from a standard hero template.
+
+Keep my actual developer identity and relevant professional information. Do not invent clients, awards, employment, revenue, or experience.
+
+Suggested headline direction:
+
+"I build digital things that do more."
+
+You may refine the supporting copy to sound natural, specific, and confident. Avoid generic phrases such as "turning ideas into reality," "passionate about innovation," or "crafting seamless digital experiences."
+
+Include a clear primary action to explore selected work and a secondary way to contact me. Keep navigation minimal and unobtrusive.
+
+The hero should have a recognizable silhouette and strong composition even with all animations disabled.
+
+## 5. The 3D Subject: Fix It Properly
+
+The existing non-human 3D mascot is currently facing the wrong direction, appears back-facing, and does not respond convincingly to the cursor.
+
+Inspect the actual model, its geometry, its local coordinate system, its initial rotation, its camera, and its interaction logic. Do not blindly rotate the model until it looks correct from one screenshot.
+
+First establish the model's true forward-facing axis. Correct its orientation at the appropriate model or scene level. Make sure its face or intended front is visible from the hero camera at the initial page load.
+
+If the model's origin or orientation is incorrect, fix the root transform or create a dedicated parent group for the model. Keep the camera and lighting consistent with the corrected orientation.
+
+If the model is unsuitable, inspect whether its geometry, materials, and structure can be repaired. Use an appropriate fallback only if the existing asset genuinely cannot deliver the intended result. Do not invent a replacement asset or silently remove the subject.
+
+### Cursor-responsive behavior
+
+Implement a subtle, polished interaction:
+
+- Track pointer movement relative to the 3D scene, not the entire document's raw screen coordinates.
+- Map pointer position to a small, clamped range of horizontal and vertical rotation.
+- Use smooth interpolation or damping so the subject follows the pointer naturally.
+- Keep the subject facing the viewer at rest.
+- Avoid extreme rotations, sudden snapping, jitter, and excessive movement.
+- Add a subtle secondary motion only if it enhances the subject.
+- Reset gently toward its resting pose when the pointer leaves the scene.
+- On touch devices, use an appropriate gentle idle animation or limited touch interaction instead of relying on hover.
+- Respect reduced-motion preferences.
+
+The model must remain visually integrated with the page. Use restrained lighting and subtle lime reflections. Avoid the appearance of a random 3D asset pasted into a dark template.
+
+Do not add a custom cursor that interferes with the subject's pointer tracking.
+
+## 6. Cursor and Interaction Design
+
+Remove the current bad cursor implementation.
+
+Start with the native cursor. Only introduce a custom cursor if it offers a clear functional or artistic benefit and is implemented exceptionally well.
+
+If a custom cursor is retained:
+
+- Make it small, precise, and visually quiet.
+- Use a subtle lime indicator rather than a huge glowing circle.
+- Ensure pointer movement is smooth without noticeable lag.
+- Provide clear hover feedback on interactive elements.
+- Handle links, buttons, text inputs, selection, and touch devices correctly.
+- Never hide the native cursor if the custom implementation is broken, inaccessible, or unavailable.
+- Do not interfere with text selection, clicks, pointer events, or drag interactions.
+- Disable or simplify the custom cursor on touchscreens and when reduced motion is requested.
+
+Every interaction must feel responsive. Buttons should communicate hover, focus, pressed, and disabled states where relevant. Links must behave like links, and controls must not be decorative dead ends.
+
+## 7. Typography, Layout, and Page Rhythm
+
+Rework the entire page as a single visual composition.
+
+Do not make every section a centered heading followed by a grid of cards.
+
+Use a consistent grid, deliberate alignment, a limited spacing scale, and clear changes in density between sections.
+
+Use a mix of:
+
+- Oversized editorial typography.
+- Asymmetric two-column layouts.
+- Open project compositions with large visual previews.
+- Thin dividers and restrained metadata.
+- Generous spacing between major sections.
+- Occasional changes in alignment or background to create rhythm.
+
+Keep text widths controlled for readability. Make section transitions feel deliberate.
+
+Use subtle separators rather than enclosing every content block in a border. Not every section needs a background change, animation, icon, label, or decorative element.
+
+On mobile, redesign the composition intentionally rather than simply shrinking the desktop layout.
+
+## 8. About Section
+
+Replace the generic "Curious by default. Building by doing." presentation with a concise, editorial introduction.
+
+Communicate that I am a software engineering student and developer who builds practical software, explores full-stack engineering, and is developing expertise in AI and machine learning.
+
+Keep the copy specific and honest. Do not invent personal stories or professional achievements.
+
+Present relevant information through typography, a few carefully chosen facts, or a compact editorial layout. Do not create another collection of small dashboard cards.
+
+## 9. Selected Work: Treat Projects Like Case Studies
+
+My projects are one of the strongest parts of the website. Give them visual importance.
+
+Retain the relevant existing projects, including:
+
+- AutoBill: a mobile business invoicing and record-management application.
+- PaletteSnap: a tool for extracting colors from images.
+- SecureVault: secure file storage and expiring file-sharing links.
+- Ascend: a full-stack application with authentication and referral functionality.
+- CinVault: a movie discovery application.
+- Sugarcane AI: an AI-focused agricultural decision-support project.
+
+Verify the actual project details in the existing codebase before writing descriptions. Do not invent features, usage figures, results, or deployment status.
+
+Design the projects as an editorial showcase, not a repetitive collection of identical bordered cards.
+
+Choose one or two featured projects for larger compositions. Let the remaining projects use a more compact but visually varied layout.
+
+For each project, show:
+
+- A strong project title.
+- A concise description of the actual problem it solves.
+- Relevant technologies, only where useful.
+- A genuine visual preview from the project, if available.
+- A working link to the project or repository, when one exists.
+
+Use project screenshots, interfaces, diagrams, or authentic visuals where possible. Do not fabricate screenshots or use random stock imagery to fill space.
+
+Hover effects should reveal useful information, gently transform a preview, or improve the sense of depth. Avoid excessive tilt, exaggerated scaling, and constant looping animations.
+
+The section should make a visitor want to explore my work.
+
+## 10. Skills and Technical Approach
+
+Do not represent my skills as six generic cards with icons.
+
+Present my technical capabilities with a compact, editorial hierarchy. Group technologies into meaningful categories such as frontend, backend, data, and AI/ML, based on the skills actually present in the project or my existing portfolio content.
+
+Use typography, concise lists, and selective emphasis. Avoid proficiency percentages, arbitrary progress bars, and claims that cannot be substantiated.
+
+## 11. Beyond Code
+
+Keep this section only if it contributes something meaningful to my actual professional direction.
+
+It can communicate my interest in engineering quality, AI/ML, software architecture, experimentation, and continuous improvement. Use a restrained layout and real information.
+
+Remove filler content that exists only to make the page longer.
+
+## 12. Contact Section
+
+End with a strong, simple invitation to get in touch.
+
+Use an expressive headline, one short sentence, and a clearly visible contact action. Retain my actual contact details and links.
+
+Keep the form functional if one already exists. Validate inputs, show useful success and error states, and do not claim that a message was sent unless the underlying submission succeeds.
+
+Avoid a generic oversized form inside a glowing bordered card.
+
+## 13. Motion and Animation
+
+Treat animation as part of the art direction, not as a checklist.
+
+Use a small number of carefully timed effects:
+
+- A restrained initial entrance for the hero content.
+- Natural motion for the 3D subject.
+- Subtle project-preview interactions.
+- Gentle reveal effects where they improve comprehension.
+- Small, immediate transitions for navigation and buttons.
+
+Use appropriate easing, consistent timing, and transform/opacity-based animations where possible.
+
+Do not animate every heading, paragraph, divider, card, and icon separately. Avoid excessive scroll-triggered reveals, parallax everywhere, long entrance delays, fake loading sequences, and scroll-jacking.
+
+The website must remain fast, readable, and fully usable without animation. Respect prefers-reduced-motion. Avoid introducing multiple animation libraries when the existing stack can achieve the result cleanly.
+
+## 14. Engineering Quality
+
+This is a real, working website, not a static design concept.
+
+- Preserve the existing framework and architecture unless a change is technically justified.
+- Keep components maintainable and avoid unnecessary abstraction.
+- Fix actual errors rather than hiding them.
+- Ensure the site works at desktop, tablet, and mobile widths.
+- Check for horizontal overflow, broken navigation, overlapping elements, and unreadable text.
+- Optimize 3D rendering, texture sizes, asset loading, and animation performance.
+- Use sensible fallbacks when WebGL or 3D rendering is unavailable.
+- Avoid unnecessary dependencies.
+- Keep semantic HTML, keyboard accessibility, visible focus states, and sufficient contrast.
+- Ensure custom pointer effects do not block interaction.
+- Optimize images and prevent layout shifts.
+- Keep SEO metadata, page titles, and social sharing metadata accurate.
+- Do not remove functional features merely to simplify the design.
+
+## 15. Mandatory Testing and Refinement
+
+Do not declare the redesign complete just because the code compiles.
+
+Run the existing development server and inspect the actual rendered website using available browser or screenshot tools.
+
+Review at least:
+
+1. The initial desktop viewport.
+2. The full page at desktop width.
+3. A tablet viewport.
+4. A narrow mobile viewport.
+5. The hero with the pointer at different positions.
+6. The subject's default orientation and resting pose.
+7. Navigation, buttons, project links, and contact interactions.
+8. Reduced-motion behavior.
+9. Browser console errors and failed asset requests.
+10. Performance problems caused by the 3D scene or animation.
+
+After the first implementation, review screenshots critically. Fix obvious issues with spacing, type scale, composition, model orientation, responsiveness, and interaction quality. Repeat until the design is coherent across the page.
+
+If browser inspection or a particular test tool is unavailable, be transparent about that limitation instead of claiming that the test passed.
+
+## Final Quality Standard
+
+The result should feel like a carefully art-directed portfolio belonging to a technically strong, visually discerning developer.
+
+It should be minimal without being empty, expressive without being noisy, distinctive without being gimmicky, and animated without sacrificing usability.
+
+The parrot-lime accent and 3D subject should act as a recognizable signature, not compensate for weak design.
+
+Prioritize exceptional typography, composition, whitespace, authentic project presentation, coherent motion, and flawless execution.
+
+**Do not just make the current website prettier. Rethink its visual hierarchy, correct its broken interactions, and turn it into one coherent design experience. Inspect, implement, test, review, and refine the actual codebase.**
